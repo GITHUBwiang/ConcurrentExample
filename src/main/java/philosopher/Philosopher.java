@@ -3,6 +3,9 @@ package philosopher;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Philosopher implements Runnable {
+    /**
+     * 哲学家 从1开始，1、2、3、4、5
+     */
     int id;
     State state;
 
@@ -60,7 +63,7 @@ public class Philosopher implements Runnable {
      * 叉子数组
      * @param forks 所有的叉子的数组【0，1，2，0，3】 0表示无人占用，其余表示占用人id
      * @param fork 要拿起的叉子
-     * @return
+     * @return 是否成功拿到了叉子
      */
     private boolean _take(int[] forks, int fork) {
         //没人使用
