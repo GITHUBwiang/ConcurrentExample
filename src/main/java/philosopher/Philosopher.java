@@ -101,11 +101,11 @@ public class Philosopher implements Runnable {
     }
 
     public boolean checkLeft(int[] forks) {
-        return forks[left()] == 0;
+        return forks[left()] == id;
     }
 
     public boolean checkRight(int[] forks) {
-        return forks[right()] == 0;
+        return forks[right()] == id;
     }
 
     public void finished() {
