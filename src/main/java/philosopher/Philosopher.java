@@ -40,7 +40,11 @@ public class Philosopher implements Runnable {
         }
     }
 
-    public void eating() throws InterruptedException {
+    public void eating(int[] forks) throws InterruptedException {
+        if(!checkLeft(forks)||!checkRight(forks)){
+            //检查吃的时候有没有拿到全部叉子
+            System.out.format("=======================id:%d\tcheckLeft:%s\t checkRight:%s\n ",id,checkLeft(forks),checkRight(forks));
+        }
         if (state.equals(State.HUNGRY)) {
             setState(State.EATING);
             Thread.sleep((long) (Math.random() * 100));
@@ -101,11 +105,11 @@ public class Philosopher implements Runnable {
     }
 
     public boolean checkLeft(int[] forks) {
-        return forks[left()] == 0;
+        return forks[left()] == id;
     }
 
     public boolean checkRight(int[] forks) {
-        return forks[right()] == 0;
+        return forks[right()] == id;
     }
 
     public void finished() {
